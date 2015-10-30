@@ -2,7 +2,7 @@ __author__ = 'kunal'
 
 import sys
 import os
-import redis
+import textToRedis
 from numpy import array
 
 os.environ['SPARK_HOME'] = "../spark-1.5.1"
@@ -24,7 +24,7 @@ config = SparkConf()
 sc = SparkContext(conf=config)
 
 test = sc.textFile("../data/testdata10MB")
-model = MatrixFactorizationModel.load(sc, "../SavedModel")
+model = MatrixFactorizationModel.load(sc, "../TrainedModel")
 ratings = test.map(lambda line: array([float(x) for x in line.split('\t')]))
 testdata = ratings.map(lambda p: (int(p[0]), int(p[1])))
 predictionsRDD = model.predictAll(testdata).map(lambda r: ((r[0], r[1]), r[2]))
