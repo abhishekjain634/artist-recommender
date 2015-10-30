@@ -2,3 +2,4 @@
 reference
 data
 spark-1.5.1
+*.pyc
