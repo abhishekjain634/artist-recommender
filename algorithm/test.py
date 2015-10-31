@@ -2,7 +2,6 @@ __author__ = 'kunal'
 
 import sys
 import os
-import setup
 from numpy import array
 
 os.environ['SPARK_HOME'] = "../spark-1.5.1"
