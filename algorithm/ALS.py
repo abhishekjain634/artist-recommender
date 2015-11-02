@@ -21,12 +21,12 @@ except ImportError as e:
 config = (SparkConf()
         .setMaster("local")
         .setAppName("Artist Recommender")
-        .set("spark.executor.memory", "1G")
-        .set("spark.driver.memory", "1G"))
+        .set("spark.executor.memory", "8G")
+        .set("spark.driver.memory", "8G"))
 sc = SparkContext(conf=config)
 
 # Load and parse the data
-data = sc.textFile('../data/10MBdata')
+data = sc.textFile('../data/10Mdata')
 ratings = data.map(lambda l: l.split('\t')).map(lambda l: Rating(int(l[0]), int(l[1]), float(l[2])))
 
 #Count

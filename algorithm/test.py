@@ -30,7 +30,8 @@ predictionsRDD = model.predictAll(testdata).map(lambda r: ((r[0], r[1]), r[2]))
 
 predictions = predictionsRDD.collect()
 print predictions
-
+'''
 ratesAndPreds = ratings.map(lambda r: ((r[0], r[1]), r[2])).join(predictionsRDD)
 MSE = ratesAndPreds.map(lambda r: (r[1][0] - r[1][1])**2).reduce(lambda x, y: x + y)/ratesAndPreds.count()
 print("Mean Squared Error = " + str(MSE))
+'''
