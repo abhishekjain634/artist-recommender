@@ -21,8 +21,9 @@ except ImportError as e:
 config = (SparkConf()
         .setMaster("local")
         .setAppName("Artist Recommender")
-        .set("spark.executor.memory", "8G")
-        .set("spark.driver.memory", "8G"))
+        .set("spark.executor.instances", "8")
+        .set("spark.executor.memory", "16G")
+        .set("spark.driver.memory", "16G"))
 sc = SparkContext(conf=config)
 
 # Load and parse the data

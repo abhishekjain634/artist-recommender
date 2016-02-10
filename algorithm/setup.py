@@ -39,6 +39,7 @@ def getVariable(variable_name, server):
 def setVariable(variable_name, variable_value, server):
     server.set(variable_name, variable_value)
 
-load_ratings('10MBdata', r)
-load_artists('artists.txt', a)
+load_ratings('10Mdata', r)
+#load_artists('artists.txt', a)
+print "data copied to redis server"
 #print r.values(), r.keys()
